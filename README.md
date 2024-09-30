@@ -4,6 +4,8 @@
 - [Asignar puertos del Switch a la VLAN](#2-asignar-puertos-del-switch-a-la-vlan)
 - [Crear enlace troncal](#3-crear-enlace-troncal)
 - [Configurar DHCP POOL](#4-configurar-dhcp-pool)
+- [Configurar PortChannel](#5-configurar-portchannel)
+- [Comandos para verificar información](#comandos-para-verificar-información)
 ---
 
 ## 1. Crear VLAN en el Switch
