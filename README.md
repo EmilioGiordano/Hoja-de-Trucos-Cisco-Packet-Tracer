@@ -6,6 +6,7 @@
 - [4. Configurar DHCP POOL](#4-configurar-dhcp-pool)
 - [5. Configurar PortChannel](#5-configurar-portchannel)
 - [6. OSPF](#6-ospf)
+- [7. Subinterfaces de cada VLAN en un router](#7-subinterfaces-de-cada-vlan-en-un-router)
 - [Comandos para verificar información](#comandos-para-verificar-información)
 ---
 
@@ -101,6 +102,13 @@ Show ip ospf
 ##### Muestra el intervalo de saludo y el intervalo muerto.
 ```bash
 Show ip ospf interface
+```
+## 7. Subinterfaces de cada VLAN en un router
+```bash
+configure terminal
+interface <interfaz>.<id de vlan> (por ejemplo: gig0/0/0.2)
+encapsulation dot1Q <id de vlan>
+ip address <ip de gateway> <mascara>
 ```
 
 ## Comandos para verificar información
