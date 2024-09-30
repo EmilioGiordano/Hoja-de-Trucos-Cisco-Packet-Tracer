@@ -5,7 +5,8 @@
 - [3. Crear enlace troncal](#3-crear-enlace-troncal)
 - [4. Configurar DHCP POOL](#4-configurar-dhcp-pool)
 - [5. Configurar PortChannel](#5-configurar-portchannel)
-- [6. Comandos para verificar información](#comandos-para-verificar-información)
+- [6. OSPF](#6-ospf)
+- [Comandos para verificar información](#comandos-para-verificar-información)
 ---
 
 ## 1. Crear VLAN en el Switch
@@ -85,6 +86,21 @@ description TRUNK
 switchport trunk native vlan 99
 switchport mode trunk
 channel-group 1 mode active
+```
+
+## 6. OSPF
+#### Verificación de OSPF: comandos adicionales
+##### Muestra la ID del proceso OSPF, la ID del router, el router de red que se encuentra notificando y la distancia administrativa.
+```bash
+Show ip protocols
+```
+##### Muestra la ID del proceso OSPF, la ID del router, información del área OSPF y la última vez que se calculó el algoritmo SPF.
+```bash
+Show ip ospf
+```
+##### Muestra el intervalo de saludo y el intervalo muerto.
+```bash
+Show ip ospf interface
 ```
 
 ## Comandos para verificar información
