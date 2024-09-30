@@ -9,26 +9,45 @@
 ---
 
 ## 1. Crear VLAN en el Switch
-
+####  VLAN 10: Administración
 ```bash
 Switch> enable
 Switch#configure terminal
 Switch(config)#vlan 10
 Switch(config-vlan)#name Administracion
+Switch(config-vlan)#exit
+```
+####  VLAN 20: RRHH
+```bash
+Switch(config)#vlan 20
+Switch(config-vlan)#name RRHH
+Switch(config-vlan)#exit
 ```
 
 ## 2. Asignar puertos del Switch a la VLAN
-```bash
+####  VLAN 10 para los puertos fastEthernet 0/1 al 0/6(o cualquier puerto que se desee)
+``` bash
+
 Switch(config)#interface range fastEthernet 0/1-6
 Switch(config-if-range)#switchport mode access 
-Switch(config-if-range)#switchport access vlan 172
+Switch(config-if-range)#switchport access vlan 10
+```
+####  VLAN 20 para los puertos fastEthernet 0/7 al 0/10(o cualquier puerto que se desee)
+``` bash
+Switch(config)#interface range fastEthernet 0/7-10
+Switch(config-if-range)#switchport mode access 
+Switch(config-if-range)#switchport access vlan 20
 ```
 
 ## 3. Crear enlace troncal 
 ####  Permite comunicar equipos de la misma VLAN pero diferentes Switches
+##### Primero creamos la VLAN en el Switch
 ```bash
 Switch(config)#vlan 99
 Switch(config-vlan)# exit
+```
+##### Luego definimos la interfaz(puerto) en modo troncal. Se recomienda utilizar gigabitEthernet pero fastEthernet también funciona.
+```bash
 Switch(config)#interface range gigabitEthernet 0/1-2
 Switch(config-if-range)#switchport mode trunk
 Switch(config-if-range)#switchport trunk native vlan 99
@@ -54,7 +73,7 @@ Router(dhcp-config)# exit
 Router(config)# ip dhcp excluded-address 172.17.0.1 172.17.0.10
 ```
 ## 5. Configurar PortChannel 
-####  Permite comunicar equipos de la misma VLAN pero diferentes Switches
+####  
 ```bash
 interface Port-channel1
 description TRUNK
