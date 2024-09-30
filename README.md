@@ -1,11 +1,11 @@
 # 📝 Hoja de Trucos de Redes
 ## Índice
-- [Crea VLAN en el Switch](#1-crear-vlan-en-el-switch)
-- [Asignar puertos del Switch a la VLAN](#2-asignar-puertos-del-switch-a-la-vlan)
-- [Crear enlace troncal](#3-crear-enlace-troncal)
-- [Configurar DHCP POOL](#4-configurar-dhcp-pool)
-- [Configurar PortChannel](#5-configurar-portchannel)
-- [Comandos para verificar información](#comandos-para-verificar-información)
+- [1. Crear VLAN en el Switch](#1-crear-vlan-en-el-switch)
+- [2. Asignar puertos del Switch a la VLAN](#2-asignar-puertos-del-switch-a-la-vlan)
+- [3. Crear enlace troncal](#3-crear-enlace-troncal)
+- [4. Configurar DHCP POOL](#4-configurar-dhcp-pool)
+- [5. Configurar PortChannel](#5-configurar-portchannel)
+- [6. Comandos para verificar información](#comandos-para-verificar-información)
 ---
 
 ## 1. Crear VLAN en el Switch
