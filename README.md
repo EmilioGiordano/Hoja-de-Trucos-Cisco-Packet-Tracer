@@ -5,7 +5,7 @@
 - [3. Crear enlace troncal](#3-crear-enlace-troncal)
 - [4. Configurar DHCP POOL](#4-configurar-dhcp-pool)
 - [5. Configurar PortChannel](#5-configurar-portchannel)
-- [6. OSPF](#6-ospf)
+- [6. Enrutamiento Dinámico](#6-enrutamiento-dinámico)
 - [7. Subinterfaces de cada VLAN en un router](#7-subinterfaces-de-cada-vlan-en-un-router)
 - [Comandos para verificar información](#comandos-para-verificar-información)
 ---
@@ -89,7 +89,30 @@ switchport mode trunk
 channel-group 1 mode active
 ```
 
-## 6. OSPF
+## 6. Enrutamiento Dinámico
+### RIP v2
+#### Las IP de las Subredes que estén directamentes conectadas al Router
+```bash
+Router(config)#router rip
+Router(config-router)#network {IP de Subred} Ej: 172.16.0.0
+Router(config-router)#network {IP de Subred} Ej: 172.16.0.4
+Router(config-router)#network {IP de Subred} Ej: 172.168.0.0
+Router(config-router)#version 2
+Router(config-router)#no auto-summary 
+```
+### OSPF
+#### Las IP de las Subredes que estén directamentes conectadas al Router
+#### Calcular Wildcard:
+![image](https://github.com/user-attachments/assets/b909377f-3061-45b8-83f0-abe6ce7c15d5)
+```bash
+Router(config)#router ospf {ID} 
+Router(config-router)#network {IP de Subred} {Wildcard} Ej: 172.16.0.0  0.0.0.255
+Router(config-router)#network {IP de Subred} {Wildcard} Ej: 172.16.0.4  0.0.0.255
+Router(config-router)#network {IP de Subred} Ej: 172.168.0.0
+Router(config-router)#version 2
+Router(config-router)#no auto-summary 
+```
+
 #### Verificación de OSPF: comandos adicionales
 ##### Muestra la ID del proceso OSPF, la ID del router, el router de red que se encuentra notificando y la distancia administrativa.
 ```bash
