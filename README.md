@@ -20,7 +20,10 @@
 * __Seguridad__: la capa de acceso se encarga de controlar qué dispositivos están intentando conectarse antes de darles acceso a la red, más los protocolos y políticas de seguridad de cada capa, disminuyendo el riesgo de que usuarios maliciosos o información contaminada acceda a la red.
 * __Administración__: La división en VLANs a partir de la capa de distribución permite además administrar más fácilmente distintos grupos de dispositivos y/o usuarios. Por otro lado, la división en capas, con funcionalidades y configuraciones individuales, otorga una mayor facilidad al momento de configurarlas y administrarlas.
 * __Flexibilidad y adaptabilidad__: Dada la segmentación de la red en tres capas, se pueden aplicar nuevas tecnologías en cualquiera de ellas sin afectar negativamente a las otras.
-![VLAN diagrama](https://github.com/user-attachments/assets/117b5fd7-45b1-48fb-a943-7146e320b318)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/117b5fd7-45b1-48fb-a943-7146e320b318" alt="VLAN diagrama" width="400"/>
+</div>
+
 #### Configurar VLANs
 ####  VLAN 10: Administración
 ```bash
@@ -49,8 +52,11 @@ Switch(config)#interface range fastEthernet 0/7-10
 Switch(config-if-range)#switchport mode access 
 Switch(config-if-range)#switchport access vlan 20
 ```
-#### Ejemplo
-![image](https://github.com/user-attachments/assets/f95d2c81-53f6-4dc6-a703-60aa356de1d7)
+#### Ejemplo de topología
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/f95d2c81-53f6-4dc6-a703-60aa356de1d7" alt="VLAN diagrama" width="400"/>
+</div>
+
 
 
 ## 3. Crear enlace troncal 
@@ -64,7 +70,11 @@ Switch(config-if-range)#switchport trunk native vlan 99
 Switch(config-if-range)#no shutdown 
 ```
 #### Ejemplo sobre las Interfaces fastEthernet 0/1 0/2 & 0/3
-![image](https://github.com/user-attachments/assets/a30ad9aa-d652-49fa-9b29-ba8587517a13)
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a30ad9aa-d652-49fa-9b29-ba8587517a13" alt="Enlace troncal"/>
+</div>
+
 
 ## 4. Configurar DHCP POOL
 ```bash
@@ -113,7 +123,10 @@ Router(config-router)#no auto-summary
 ### OSPF
 #### Las IP de las Subredes que estén directamentes conectadas al Router
 #### Calcular Wildcard:
-![image](https://github.com/user-attachments/assets/b909377f-3061-45b8-83f0-abe6ce7c15d5)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/b909377f-3061-45b8-83f0-abe6ce7c15d5" alt="Calcular Wildcard" />
+</div>
+
 ```bash
 Router(config)#router ospf {ID} 
 Router(config-router)#network {IP de Subred} {Wildcard} Ej: 172.16.0.0  0.0.0.255
