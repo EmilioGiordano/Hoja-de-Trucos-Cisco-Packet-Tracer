@@ -5,7 +5,7 @@
 
 
 
-## 1. Configurar el __router central__. Será el que más subredes tendrá que declarar.
+## 1. Configurar el __router central__. Será el que más subredes deberá declarar en el Protocolo RIP y sus interfaces.
 
 ### Configurar IP en las interfaces
 #### Serial 0/0/0
