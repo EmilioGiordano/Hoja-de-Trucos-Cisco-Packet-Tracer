@@ -12,7 +12,10 @@
 
 ## 1. Crear VLAN en el Switch
 #### ¿Qué es una VLAN(virtual Local Area Network)?
-##### Es un método para crear redes lógicas independientes dentro de una misma red física Varias VLAN pueden coexistir en una única red física.
+##### Es un método para crear redes lógicas independientes dentro de una misma red física Varias VLAN pueden coexistir en una única red física. Son útiles para reducir el tamaño del dominio de difusión y ayudan en la administración de la red, separando segmentos lógicos de una red de área local que no deberían intercambiar datos usando la red local.
+![VLAN diagrama](https://github.com/user-attachments/assets/117b5fd7-45b1-48fb-a943-7146e320b318)
+
+
 ####  VLAN 10: Administración
 ```bash
 Switch> enable
