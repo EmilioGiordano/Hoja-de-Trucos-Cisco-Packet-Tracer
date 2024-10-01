@@ -120,6 +120,8 @@ Router(config-router)#network {IP de Subred} Ej: 172.168.0.0
 Router(config-router)#version 2
 Router(config-router)#no auto-summary 
 ```
+[Ejemplo práctico de Enrutamiento RIP v2](./Enrutamiento%20Dinámico%20RIP%20v2.md)
+
 ### OSPF
 #### Las IP de las Subredes que estén directamentes conectadas al Router
 #### Calcular Wildcard:
@@ -129,9 +131,9 @@ Router(config-router)#no auto-summary
 
 ```bash
 Router(config)#router ospf {ID} 
-Router(config-router)#network {IP de Subred} {Wildcard} Ej: 172.16.0.0  0.0.0.255
-Router(config-router)#network {IP de Subred} {Wildcard} Ej: 172.16.0.4  0.0.0.255
-Router(config-router)#network {IP de Subred} Ej: 172.168.0.0
+Router(config-router)#network {IP de Subred} {Wildcard} Ej: 172.168.10.0  0.0.0.255
+Router(config-router)#network {IP de Subred} {Wildcard} Ej: 172.168.20.4  0.0.0.255
+Router(config-router)#network {IP de Subred} {Wildcard} Ej: 172.168.30.0 0.0.0.255
 Router(config-router)#version 2
 Router(config-router)#no auto-summary 
 ```
