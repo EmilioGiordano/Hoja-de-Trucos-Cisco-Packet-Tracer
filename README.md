@@ -11,6 +11,8 @@
 ---
 
 ## 1. Crear VLAN en el Switch
+#### ¿Qué es una VLAN(virtual Local Area Network)?
+##### Es un método para crear redes lógicas independientes dentro de una misma red física Varias VLAN pueden coexistir en una única red física.
 ####  VLAN 10: Administración
 ```bash
 Switch> enable
@@ -25,11 +27,9 @@ Switch(config)#vlan 20
 Switch(config-vlan)#name RRHH
 Switch(config-vlan)#exit
 ```
-
 ## 2. Asignar puertos del Switch a la VLAN
 ####  VLAN 10 para los puertos fastEthernet 0/1 al 0/6(o cualquier puerto que se desee)
 ``` bash
-
 Switch(config)#interface range fastEthernet 0/1-6
 Switch(config-if-range)#switchport mode access 
 Switch(config-if-range)#switchport access vlan 10
@@ -40,21 +40,22 @@ Switch(config)#interface range fastEthernet 0/7-10
 Switch(config-if-range)#switchport mode access 
 Switch(config-if-range)#switchport access vlan 20
 ```
+#### Ejemplo
+![image](https://github.com/user-attachments/assets/f95d2c81-53f6-4dc6-a703-60aa356de1d7)
+
 
 ## 3. Crear enlace troncal 
 ####  Permite comunicar equipos de la misma VLAN pero diferentes Switches
-##### Primero creamos la VLAN en el Switch
-```bash
-Switch(config)#vlan 99
-Switch(config-vlan)# exit
-```
-##### Luego definimos la interfaz(puerto) en modo troncal. Se recomienda utilizar gigabitEthernet pero fastEthernet también funciona.
+
+##### Definimos las interfaces(puertos del Switch) en modo troncal. Se recomienda utilizar gigabitEthernet pero fastEthernet también funciona.
 ```bash
 Switch(config)#interface range gigabitEthernet 0/1-2
 Switch(config-if-range)#switchport mode trunk
 Switch(config-if-range)#switchport trunk native vlan 99
 Switch(config-if-range)#no shutdown 
 ```
+#### Ejemplo sobre las Interfaces fastEthernet 0/1 0/2 & 0/3
+![image](https://github.com/user-attachments/assets/a30ad9aa-d652-49fa-9b29-ba8587517a13)
 
 ## 4. Configurar DHCP POOL
 ```bash
