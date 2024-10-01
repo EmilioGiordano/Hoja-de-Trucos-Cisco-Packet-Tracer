@@ -13,9 +13,15 @@
 ## 1. Crear VLAN en el Switch
 #### ¿Qué es una VLAN(virtual Local Area Network)?
 ##### Es un método para crear redes lógicas independientes dentro de una misma red física Varias VLAN pueden coexistir en una única red física. Son útiles para reducir el tamaño del dominio de difusión y ayudan en la administración de la red, separando segmentos lógicos de una red de área local que no deberían intercambiar datos usando la red local.
+#### Beneficios
+* __Escalabilidad__: Es posible agregar dispositivos, ya sean segmentos o dispositivos finales, a cada capa de manera individual, facilitando la escalabilidad.
+* __Redundancia__: al tener conectado, por ejemplo, un dispositivo de acceso a dos switches distintos, se minimiza el riesgo de perder la conexión, ya que si una interfaz se corta, se podrá acceder a la red mediante la otra.
+* __Rendimiento__: se pueden agregar más interfaces (cables) entre dos dispositivos, para aumentar el ancho de banda. A esto también se le suma la segmentación adecuada que proveen los switches con sus VLANS, optimizando los dominios de broadcast y colisión
+* __Seguridad__: la capa de acceso se encarga de controlar qué dispositivos están intentando conectarse antes de darles acceso a la red, más los protocolos y políticas de seguridad de cada capa, disminuyendo el riesgo de que usuarios maliciosos o información contaminada acceda a la red.
+* __Administración__: La división en VLANs a partir de la capa de distribución permite además administrar más fácilmente distintos grupos de dispositivos y/o usuarios. Por otro lado, la división en capas, con funcionalidades y configuraciones individuales, otorga una mayor facilidad al momento de configurarlas y administrarlas.
+* __Flexibilidad y adaptabilidad__: Dada la segmentación de la red en tres capas, se pueden aplicar nuevas tecnologías en cualquiera de ellas sin afectar negativamente a las otras.
 ![VLAN diagrama](https://github.com/user-attachments/assets/117b5fd7-45b1-48fb-a943-7146e320b318)
-
-
+#### Configurar VLANs
 ####  VLAN 10: Administración
 ```bash
 Switch> enable
