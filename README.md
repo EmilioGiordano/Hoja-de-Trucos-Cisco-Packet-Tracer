@@ -128,12 +128,13 @@ Router(config-router)#no auto-summary
 <div align="center">
   <img src="https://github.com/user-attachments/assets/b909377f-3061-45b8-83f0-abe6ce7c15d5" alt="Calcular Wildcard" />
 </div>
-
+##### ID del proceso: número entre 1 y 65535
+##### No se necesita coincidencia de ID con otros routers OSPF
 ```bash
-Router(config)#router ospf {ID} 
-Router(config-router)#network {IP de Subred} {Wildcard} Ej: 172.168.10.0  0.0.0.255
-Router(config-router)#network {IP de Subred} {Wildcard} Ej: 172.168.20.4  0.0.0.255
-Router(config-router)#network {IP de Subred} {Wildcard} Ej: 172.168.30.0 0.0.0.255
+Router(config)#router ospf {ID del proceso} 
+Router(config-router)#network {IP de Subred 1} {Wildcard} Ej: 172.168.10.0  0.0.0.255
+Router(config-router)#network {IP de Subred 2} {Wildcard} Ej: 172.168.20.4  0.0.0.255
+Router(config-router)#network {IP de Subred 3} {Wildcard} Ej: 172.168.30.0 0.0.0.255
 Router(config-router)#version 2
 Router(config-router)#no auto-summary 
 ```
