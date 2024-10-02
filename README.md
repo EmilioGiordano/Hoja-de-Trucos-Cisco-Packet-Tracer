@@ -159,6 +159,10 @@ interface <interfaz>.<id de vlan> (por ejemplo: gig0/0/0.2)
 encapsulation dot1Q <id de vlan>
 ip address <ip de gateway> <mascara>
 ```
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/9f13d348-f5f9-4ee6-a4f9-63ba22c6dca5" alt="Calcular Wildcard" />
+</div>
+
 
 ## Comandos para verificar información
 ### Switch
