@@ -77,23 +77,31 @@ Switch(config-if-range)#no shutdown
 
 
 ## 4. Configurar DHCP POOL
+#### VLAN 10
 ```bash
-Router(config)# ip dhcp pool VLAN171(NAME)
+Router(config)# ip dhcp pool VLAN20(Nombre de la VLAN)
 Router(dhcp-config)# network 172.17.0.0 255.255.192.0
 Router(dhcp-config)# default-router 172.17.0.1
 Router(dhcp-config)# dns-server [ip dns server]
 Router(dhcp-config)# exit
-//Excluye todos estos valores, empieza desde .11
-Router(config)# ip dhcp excluded-address 172.17.0.1 172.17.0.10
-
-Router(config)# ip dhcp pool VLAN171(NAME)
-Router(dhcp-config)# network 172.17.0.0 255.255.192.0
-Router(dhcp-config)# default-router 172.17.0.1
-Router(dhcp-config)# dns-server [ip dns server]
-Router(dhcp-config)# exit
-//Excluye todos estos valores, empieza desde .11
+Router(config)# ip dhcp excluded-address 172.17.0.1 
+```
+#### Excluir intervalo de direcciones IP: excluirá las direcciones del intervalo [172.17.0.1; 172.17.0.10]
+```bash
 Router(config)# ip dhcp excluded-address 172.17.0.1 172.17.0.10
 ```
+#### VLAN 20 
+```bash
+Router(config)# ip dhcp pool VLAN20(NAME)
+Router(dhcp-config)# network 172.17.0.0 255.255.192.0
+Router(dhcp-config)# default-router 172.17.0.1
+Router(dhcp-config)# dns-server [ip dns server]
+Router(dhcp-config)# exit
+```
+
+Router(config)#ip dhcp excluded-address 172.16.1.128 172.16.1.132
+
+
 ## 5. Configurar PortChannel 
 ####  
 ```bash
