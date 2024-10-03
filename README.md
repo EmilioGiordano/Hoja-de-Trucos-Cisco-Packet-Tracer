@@ -131,7 +131,7 @@ Router(config-router)#no auto-summary
 [Ejemplo práctico de Enrutamiento RIP v2](./Enrutamiento%20Dinámico%20RIP%20v2.md)
 
 ### OSPF
-#### Las IP de las Subredes que estén directamentes conectadas al Router
+#### Se deben declarar las subredes que estén __directamente conectadas__ a cada Router 
 #### Calcular Wildcard:
 <div align="center">
   <img src="https://github.com/user-attachments/assets/b909377f-3061-45b8-83f0-abe6ce7c15d5" alt="Calcular Wildcard" />
@@ -140,13 +140,15 @@ Router(config-router)#no auto-summary
 ##### No se necesita coincidencia de ID con otros routers OSPF
 
 ```bash
-Router(config)#router ospf {ID del proceso} 
-Router(config-router)#network {IP de Subred 1} {Wildcard} Ej: 172.168.10.0  0.0.0.255
-Router(config-router)#network {IP de Subred 2} {Wildcard} Ej: 172.168.20.4  0.0.0.255
-Router(config-router)#network {IP de Subred 3} {Wildcard} Ej: 172.168.30.0 0.0.0.255
+Router(config)#router ospf {ID del proceso}
 Router(config-router)#version 2
+Router(config-router)#network {IP de Subred 1} {Wildcard} area 0 
+Router(config-router)#network 192.168.10.0 0.0.0.3 area 0 
+Router(config-router)#network 192.168.10.8 0.0.0.3  area 0
+Router(config-router)#network 10.10.10.0 0.0.0.255 area 0
 Router(config-router)#no auto-summary 
 ```
+[Ejemplo práctico de Enrutamiento OSPF](./Enrutamiento%20Dinámico%20OSPF.md)
 
 #### Verificación de OSPF: comandos adicionales
 ##### Muestra la ID del proceso OSPF, la ID del router, el router de red que se encuentra notificando y la distancia administrativa.
