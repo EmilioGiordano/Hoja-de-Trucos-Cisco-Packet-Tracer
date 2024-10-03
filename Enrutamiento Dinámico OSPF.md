@@ -5,6 +5,12 @@
 
 ## Índice
 - [1. Configurar las interfaces de los Routers](#1-configurar-las-interfaces-de-los-routers)
+  - [Interfaces del Router 1](#router-1)
+  - [Interfaces del Router 2](#router-2)
+  - [Interfaces del Router 3](#router-3)
+  
+
+  
 - [2. Configurar el protocolo OSPF en los 3 Routers.](#2-configurar-el-protocolo-ospf-en-los-3-routers)
 
 
@@ -12,7 +18,7 @@
 
 ## 1. Configurar las interfaces de los Routers.
 
-### __Router 1__
+### Router 1
 #### Serial 0/0/0
 ```bash
 Router#configure terminal
