@@ -138,6 +138,7 @@ Router(config-router)#no auto-summary
 </div>
 ##### ID del proceso: número entre 1 y 65535
 ##### No se necesita coincidencia de ID con otros routers OSPF
+
 ```bash
 Router(config)#router ospf {ID del proceso} 
 Router(config-router)#network {IP de Subred 1} {Wildcard} Ej: 172.168.10.0  0.0.0.255
