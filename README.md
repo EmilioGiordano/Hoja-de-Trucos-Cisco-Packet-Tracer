@@ -6,7 +6,7 @@
 - [4. Configurar DHCP POOL](#4-configurar-dhcp-pool)
 - [5. Configurar PortChannel](#5-configurar-portchannel)
 - [6. Enrutamiento Dinámico](#6-enrutamiento-dinámico)
-  - [RIP V.2](#rip-v2)
+  - [RIP v.2](#rip-v2)
   - [OSPF](#ospf)
 - [7. Subinterfaces de cada VLAN en un router](#7-subinterfaces-de-cada-vlan-en-un-router)
 - [Comandos para verificar información](#comandos-para-verificar-información)
