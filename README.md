@@ -150,7 +150,7 @@ Router(config-router)#network 192.168.10.8 0.0.0.3  area 0
 Router(config-router)#network 10.10.10.0 0.0.0.255 area 0
 Router(config-router)#no auto-summary 
 ```
-[Ejemplo práctico de Enrutamiento OSPF](./Enrutamiento%20Dinámico%20OSPF.md)
+[`Ejemplo práctico de Enrutamiento OSPF`](./Enrutamiento%20Dinámico%20OSPF.md)
 
 
 #### Verificación de OSPF: comandos adicionales
