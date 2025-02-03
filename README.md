@@ -161,26 +161,30 @@ Router(config-router)#no auto-summary
 
 #### Comandos de verificación de OSPF
 ```bash
-Show ip protocols
+Router>enable
+Router#show ip protocols
 ```
 __Muestra la ID del proceso OSPF, la ID del router, el router de red que se encuentra notificando y la distancia administrativa.__
 
 ```bash
-Show ip ospf
+Router>enable
+Router#Show ip ospf
 ```
 __Muestra la ID del proceso OSPF, la ID del router, información del área OSPF y la última vez que se calculó el algoritmo SPF.__
 
 ```bash
-Show ip ospf interface
+Router>enable
+Router#show ip ospf interface
 ```
 __Muestra el intervalo de saludo y el intervalo muerto.__
 
 ## 7. Subinterfaces de cada VLAN en un router
 ```bash
-configure terminal
-interface <interfaz>.<id de vlan> (por ejemplo: gig0/0/0.2)
-encapsulation dot1Q <id de vlan>
-ip address <ip de gateway> <mascara>
+Router>enable
+Router#configure terminal
+Router(config)#interface <interfaz>.<id de vlan>  # Ej: gig0/0/0.2
+Router(config-if)#encapsulation dot1Q <id de vlan>
+Router(config-if)#ip address <ip de gateway> <mascara>
 ```
 <div align="center">
   <img src="https://github.com/user-attachments/assets/9f13d348-f5f9-4ee6-a4f9-63ba22c6dca5" alt="Calcular Wildcard" />
@@ -190,26 +194,25 @@ ip address <ip de gateway> <mascara>
 ## Comandos para verificar información
 ### Switch
 ```bash
-show vlan
-show interfaces trunk
-show interfaces status
+Switch>enable
+Switch#show vlan                      # Muestra la configuración de VLANs
+Switch#show interfaces trunk          # Muestra información sobre interfaces trunk
+Switch#show interfaces status         # Muestra el estado de las interfaces
+Switch#show mac address-table         # Muestra la tabla de direcciones MAC
+Switch#show spanning-tree             # Muestra el estado del protocolo Spanning Tree
 ```
 
 ### Router
 __Mostrar interfaces y sus estados:__
 ```bash
-Router# show ip interface brief
+Router#show ip interface brief                      # Muestra interfaces y sus estados
+Router#show ip route                                # Muestra la configuración de rutas IP
+Router#show run interface GigabitEthernet0/0.171    # Muestra configuración de subinterface 171
+Router#show run interface GigabitEthernet0/0.172    # Muestra configuración de subinterface 172
+Router#show ip protocols                            # Muestra información sobre protocolos de enrutamiento
+Router#show ip ospf interface                       # Muestra información sobre interfaces OSPF
 ```
 
-__Mostrar configuración de rutas IP:__
-```bash
-Router# show ip route
-```
-__Mostrar configuración de subinterfaces en el router:__
-```bash
-Router# show run interface GigabitEthernet0/0.171
-Router# show run interface GigabitEthernet0/0.172
-```
 ---
 ✍️ **Autor:** Emilio Giordano  
 🔗 Enlace al [repositorio](https://github.com/EmilioGiordano/Hoja-de-Trucos-Cisco-Packet-Tracer)  
