@@ -103,17 +103,27 @@ Router(config)#ip dhcp excluded-address 172.16.1.128 172.16.1.132
 ```
 
 ## 5. Configurar PortChannel
+#### Acceder al Switch y entrar en modo configuración global
 ```bash
-interface Port-channel1
-description TRUNK
-switchport trunk native vlan 99
-switchport mode trunk
-
-interface range FastEthernet0/1-4
-description TRUNK
-switchport trunk native vlan 99
-switchport mode trunk
-channel-group 1 mode active
+Switch> enable
+Switch# configure terminal
+```
+#### Crear y configurar PortChannel
+Configura el `Port-channel1` y define los parámetros del trunk:
+```bash
+Switch(config)# interface Port-channel1
+Switch(config-if)# description TRUNK
+Switch(config-if)# switchport trunk native vlan 99
+Switch(config-if)# switchport mode trunk
+```
+#### Configurar interfaces físicas
+Configurar las interfaces en el rango de `FastEthernet0/1` a `FastEthernet0/4` para que sean parte del trunk y pertenezcan al Port-channel1:
+```bash
+Switch(config)# interface range FastEthernet0/1-4
+Switch(config-if-range)# description TRUNK
+Switch(config-if-range)# switchport trunk native vlan 99
+Switch(config-if-range)# switchport mode trunk
+Switch(config-if-range)# channel-group 1 mode active
 ```
 
 ## 6. Enrutamiento Dinámico
@@ -127,7 +137,7 @@ Router(config-router)#network {IP de Subred} Ej: 172.168.0.0
 Router(config-router)#version 2
 Router(config-router)#no auto-summary 
 ```
-[Ejemplo práctico de Enrutamiento RIP v2](./Enrutamiento%20Dinámico%20RIP%20v2.md)
+<!-- [Ejemplo práctico de Enrutamiento RIP v2](./Enrutamiento%20Dinámico%20RIP%20v2.md) -->
 
 ### OSPF
 Se deben declarar las subredes que estén __directamente conectadas__ a cada Router 
