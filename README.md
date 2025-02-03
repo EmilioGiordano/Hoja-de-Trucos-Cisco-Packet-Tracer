@@ -138,8 +138,7 @@ Router(config-router)#no auto-summary
 <div align="center">
   <img src="https://github.com/user-attachments/assets/b909377f-3061-45b8-83f0-abe6ce7c15d5" alt="Calcular Wildcard" />
 </div>
-##### ID del proceso: número entre 1 y 65535
-##### No se necesita coincidencia de ID con otros routers OSPF
+ID del proceso: número entre 1 y 65535. No se necesita coincidencia de ID con otros routers OSPF
 
 ```bash
 Router(config)#router ospf {ID del proceso}
