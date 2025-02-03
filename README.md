@@ -102,8 +102,7 @@ Router(dhcp-config)# exit
 Router(config)#ip dhcp excluded-address 172.16.1.128 172.16.1.132
 ```
 
-## 5. Configurar PortChannel 
-####  
+## 5. Configurar PortChannel
 ```bash
 interface Port-channel1
 description TRUNK
