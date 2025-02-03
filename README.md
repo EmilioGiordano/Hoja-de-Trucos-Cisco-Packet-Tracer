@@ -13,9 +13,9 @@
 ---
 
 ## 1. Crear VLAN en el Switch
-#### ¿Qué es una VLAN(Virtual Local Area Network)?
-##### Es un método para crear redes lógicas independientes dentro de una misma red física. Varias VLAN pueden coexistir en una única red física. Son útiles para reducir el tamaño del dominio de difusión y ayudan en la administración de la red, separando segmentos lógicos de una red de área local que no deberían intercambiar datos usando la red local.
-#### Beneficios
+### ¿Qué es una VLAN(Virtual Local Area Network)?
+Es un método para crear redes lógicas independientes dentro de una misma red física. Varias VLAN pueden coexistir en una única red física. Son útiles para reducir el tamaño del dominio de difusión y ayudan en la administración de la red, separando segmentos lógicos de una red de área local que no deberían intercambiar datos usando la red local.
+### Beneficios
 * __Escalabilidad__: Es posible agregar dispositivos, ya sean segmentos o dispositivos finales, a cada capa de manera individual, facilitando la escalabilidad.
 * __Redundancia__: al tener conectado, por ejemplo, un dispositivo de acceso a dos switches distintos, se minimiza el riesgo de perder la conexión, ya que si una interfaz se corta, se podrá acceder a la red mediante la otra.
 * __Rendimiento__: se pueden agregar más interfaces (cables) entre dos dispositivos, para aumentar el ancho de banda. A esto también se le suma la segmentación adecuada que proveen los switches con sus VLANS, optimizando los dominios de broadcast y colisión
@@ -26,7 +26,7 @@
   <img src="https://github.com/user-attachments/assets/117b5fd7-45b1-48fb-a943-7146e320b318" alt="VLAN diagrama" width="400"/>
 </div>
 
-#### Configurar VLANs
+### Configurar VLANs
 ####  VLAN 10: Administración
 ```bash
 Switch> enable
@@ -62,9 +62,9 @@ Switch(config-if-range)#switchport access vlan 20
 
 
 ## 3. Crear enlace troncal 
-####  Permite comunicar equipos de la misma VLAN pero diferentes Switches
+Permite comunicar equipos de la misma VLAN pero diferentes Switches
+Definimos las interfaces(puertos del Switch) en modo troncal. Se recomienda utilizar gigabitEthernet pero fastEthernet también funciona.
 
-##### Definimos las interfaces(puertos del Switch) en modo troncal. Se recomienda utilizar gigabitEthernet pero fastEthernet también funciona.
 ```bash
 Switch(config)#interface range gigabitEthernet 0/1-2
 Switch(config-if-range)#switchport mode trunk
@@ -88,7 +88,7 @@ Router(dhcp-config)# dns-server [ip dns server]
 Router(dhcp-config)# exit
 Router(config)# ip dhcp excluded-address 172.17.0.1 
 ```
-#### Excluir intervalo de direcciones IP: excluirá las direcciones del intervalo [172.17.0.1; 172.17.0.10]
+##### Excluir intervalo de direcciones IP: excluirá las direcciones del intervalo [172.17.0.1; 172.17.0.10]
 ```bash
 Router(config)# ip dhcp excluded-address 172.17.0.1 172.17.0.10
 ```
@@ -99,10 +99,8 @@ Router(dhcp-config)# network 172.17.0.0 255.255.192.0
 Router(dhcp-config)# default-router 172.17.0.1
 Router(dhcp-config)# dns-server [ip dns server]
 Router(dhcp-config)# exit
-```
-
 Router(config)#ip dhcp excluded-address 172.16.1.128 172.16.1.132
-
+```
 
 ## 5. Configurar PortChannel 
 ####  
@@ -133,8 +131,8 @@ Router(config-router)#no auto-summary
 [Ejemplo práctico de Enrutamiento RIP v2](./Enrutamiento%20Dinámico%20RIP%20v2.md)
 
 ### OSPF
-#### Se deben declarar las subredes que estén __directamente conectadas__ a cada Router 
-#### Calcular Wildcard:
+Se deben declarar las subredes que estén __directamente conectadas__ a cada Router 
+##### Calcular Wildcard:
 <div align="center">
   <img src="https://github.com/user-attachments/assets/b909377f-3061-45b8-83f0-abe6ce7c15d5" alt="Calcular Wildcard" />
 </div>
@@ -152,19 +150,22 @@ Router(config-router)#no auto-summary
 [`Ejemplo práctico de Enrutamiento OSPF`](./Enrutamiento%20Dinámico%20OSPF.md)
 
 
-#### Verificación de OSPF: comandos adicionales
-##### Muestra la ID del proceso OSPF, la ID del router, el router de red que se encuentra notificando y la distancia administrativa.
+#### Comandos de verificación de OSPF
 ```bash
 Show ip protocols
 ```
-##### Muestra la ID del proceso OSPF, la ID del router, información del área OSPF y la última vez que se calculó el algoritmo SPF.
+__Muestra la ID del proceso OSPF, la ID del router, el router de red que se encuentra notificando y la distancia administrativa.__
+
 ```bash
 Show ip ospf
 ```
-##### Muestra el intervalo de saludo y el intervalo muerto.
+__Muestra la ID del proceso OSPF, la ID del router, información del área OSPF y la última vez que se calculó el algoritmo SPF.__
+
 ```bash
 Show ip ospf interface
 ```
+__Muestra el intervalo de saludo y el intervalo muerto.__
+
 ## 7. Subinterfaces de cada VLAN en un router
 ```bash
 configure terminal
@@ -186,16 +187,16 @@ show interfaces status
 ```
 
 ### Router
-#### Mostrar interfaces y sus estados:
+__Mostrar interfaces y sus estados:__
 ```bash
 Router# show ip interface brief
 ```
 
-#### Mostrar configuración de rutas IP:
+__Mostrar configuración de rutas IP:__
 ```bash
 Router# show ip route
 ```
-#### Mostrar configuración de subinterfaces en el router:
+__Mostrar configuración de subinterfaces en el router:__
 ```bash
 Router# show run interface GigabitEthernet0/0.171
 Router# show run interface GigabitEthernet0/0.172
