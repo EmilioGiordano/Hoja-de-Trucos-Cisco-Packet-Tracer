@@ -201,3 +201,7 @@ Router# show ip route
 Router# show run interface GigabitEthernet0/0.171
 Router# show run interface GigabitEthernet0/0.172
 ```
+---
+✍️ **Autor:** Emilio Giordano  
+🔗 Enlace al [repositorio](https://github.com/EmilioGiordano/Hoja-de-Trucos-Cisco-Packet-Tracer)  
+---
