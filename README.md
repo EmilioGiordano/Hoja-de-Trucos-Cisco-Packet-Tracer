@@ -9,7 +9,7 @@
   - [RIP v.2](#rip-v2)
   - [OSPF](#ospf)
 - [7. Subinterfaces de cada VLAN en un router](#7-subinterfaces-de-cada-vlan-en-un-router)
-- [Comandos para verificar información](#comandos-para-verificar-información)
+- [Comandos para verificar información](#8-comandos-para-verificar-información)
 ---
 
 ## 1. Crear VLAN en el Switch
@@ -191,7 +191,7 @@ Router(config-if)#ip address <ip de gateway> <mascara>
 </div>
 
 
-## Comandos para verificar información
+## 8. Comandos para verificar información
 ### Switch
 ```bash
 Switch>enable
