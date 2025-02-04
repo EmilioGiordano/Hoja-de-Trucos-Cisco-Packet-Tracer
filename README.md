@@ -1,16 +1,17 @@
 # 📝 Hoja de Trucos de Redes
 ## Índice
-- [1. Crear VLAN en el Switch](#1-crear-vlan-en-el-switch)
-- [2. Asignar puertos del Switch a la VLAN](#2-asignar-puertos-del-switch-a-la-vlan)
-- [3. Crear enlace troncal](#3-crear-enlace-troncal)
-- [4. Configurar DHCP POOL](#4-configurar-dhcp-pool)
-- [5. Configurar PortChannel](#5-configurar-portchannel)
-- [6. Enrutamiento Dinámico](#6-enrutamiento-dinámico)
-  - [RIP v.2](#rip-v2)
-  - [OSPF](#ospf)
-- [7. Subinterfaces de cada VLAN en un router](#7-subinterfaces-de-cada-vlan-en-un-router)
-- [8. Comandos para verificar información](#8-comandos-para-verificar-información)
----
+1. [Crear VLAN en el Switch](#1-crear-vlan-en-el-switch)
+2. [Asignar puertos del Switch a la VLAN](#2-asignar-puertos-del-switch-a-la-vlan)
+3. [Crear enlace troncal](#3-crear-enlace-troncal)
+4. [Configurar DHCP POOL](#4-configurar-dhcp-pool)
+5. [Configurar PortChannel](#5-configurar-portchannel)
+6. [Enrutamiento Dinámico](#6-enrutamiento-dinámico)
+   - [RIP v.2](#rip-v2)
+   - [OSPF](#ospf)
+7. [Subinterfaces de cada VLAN en un router](#7-subinterfaces-de-cada-vlan-en-un-router)
+8. [Comandos para verificar información](#8-comandos-para-verificar-información)
+
+
 
 ## 1. Crear VLAN en el Switch
 ### ¿Qué es una VLAN(Virtual Local Area Network)?
