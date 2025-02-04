@@ -190,7 +190,6 @@ Router(config-if)#ip address <ip de gateway> <mascara>
   <img src="https://github.com/user-attachments/assets/9f13d348-f5f9-4ee6-a4f9-63ba22c6dca5" alt="Calcular Wildcard" />
 </div>
 
-
 ## 8. Comandos para verificar información
 ### Switch
 ```bash
