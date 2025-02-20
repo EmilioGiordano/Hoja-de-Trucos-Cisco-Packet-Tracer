@@ -130,11 +130,21 @@ Switch(config-if-range)# channel-group 1 mode active
 ## 6. Enrutamiento Dinámico
 ### RIP v2
 #### Las IP de las Subredes que estén directamentes conectadas al Router
+### Comandos
 ```bash
 Router(config)#router rip
-Router(config-router)#network {IP de Subred} Ej: 172.16.0.0
-Router(config-router)#network {IP de Subred} Ej: 172.16.0.4
-Router(config-router)#network {IP de Subred} Ej: 172.168.0.0
+Router(config-router)#network <IP de Subred>
+Router(config-router)#network <IP de Subred>
+Router(config-router)#network <IP de Subred>
+Router(config-router)#version 2
+Router(config-router)#no auto-summary 
+```
+### Ejemplo de configuración
+```bash
+Router(config)#router rip
+Router(config-router)#network 172.16.0.0
+Router(config-router)#network 172.16.0.4
+Router(config-router)#network 172.168.0.0
 Router(config-router)#version 2
 Router(config-router)#no auto-summary 
 ```
@@ -146,17 +156,27 @@ Se deben declarar las subredes que estén __directamente conectadas__ a cada Rou
 <div align="center">
   <img src="https://github.com/user-attachments/assets/b909377f-3061-45b8-83f0-abe6ce7c15d5" alt="Calcular Wildcard" />
 </div>
-ID del proceso: número entre 1 y 65535. No se necesita coincidencia de ID con otros routers OSPF
+
+### Comandos
 
 ```bash
-Router(config)#router ospf {ID del proceso}
+Router(config)#router ospf <ID del proceso>
 Router(config-router)#version 2
-Router(config-router)#network {IP de Subred 1} {Wildcard} area 0 
-Router(config-router)#network 192.168.10.0 0.0.0.3 area 0 
-Router(config-router)#network 192.168.10.8 0.0.0.3  area 0
-Router(config-router)#network 10.10.10.0 0.0.0.255 area 0
+Router(config-router)#network <IP de Subred 1> <Wildcard> area 0 
 Router(config-router)#no auto-summary 
 ```
+### Ejemplo de configuración
+
+```bash
+Router(config)#router ospf 1      
+Router(config-router)#version 2
+! Agregar subredes
+Router(config-router)#network 192.168.10.0 0.0.0.3 area 0        # Subred /30
+Router(config-router)#network 192.168.10.8 0.0.0.3  area 0       # Subred /30
+Router(config-router)#network 10.10.10.0 0.0.0.255 area 0        # Subred /24
+Router(config-router)#no auto-summary 
+```
+
 
 <!-- [`Ejemplo práctico de Enrutamiento OSPF`](./Enrutamiento%20Dinámico%20OSPF.md) -->
 
@@ -180,12 +200,37 @@ Router#show ip ospf interface
 __Muestra el intervalo de saludo y el intervalo muerto.__
 
 ## 7. Subinterfaces de cada VLAN en un router
+
+### Comandos
+Las VLAN´s deben estar creadas con anterioridad
 ```bash
 Router>enable
 Router#configure terminal
-Router(config)#interface <interfaz>.<id de vlan>  # Ej: gig0/0/0.2
+Router(config)#interface <interfaz>.<id de vlan>
 Router(config-if)#encapsulation dot1Q <id de vlan>
 Router(config-if)#ip address <ip de gateway> <mascara>
+```
+### Ejemplo de configuración
+
+```bash
+Router>enable
+Router#configure terminal
+
+! Configuración para VLAN 10
+Router(config)#interface GigabitEthernet0/0.10               # VLAN 10
+Router(config-if)#encapsulation dot1Q 10                     # ID de la VLAN: 10
+Router(config-if)#ip address 192.168.10.1 255.255.255.0       
+Router(config-if)#exit
+
+! Configuración para VLAN 20
+Router(config)#interface GigabitEthernet0/0.20               # VLAN 20
+Router(config-if)#encapsulation dot1Q 20                     # ID de la VLAN: 20
+Router(config-if)#ip address 192.168.20.1 255.255.255.0
+Router(config-if)#exit
+
+! Activar la interfaz física 
+Router(config)#interface GigabitEthernet0/0                  # Interfaz física
+Router(config-if)#no shutdown                                
 ```
 
 <div align="center">
